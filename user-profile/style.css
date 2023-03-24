@@ -1,0 +1,88 @@
+body{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background-image: linear-gradient(to right, rgb(194, 91, 91), rgb(34, 34, 56));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+div#app{
+    width: 350px;
+    height: 280px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+img{
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+}
+.img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    background-image: linear-gradient(white, white), 
+    linear-gradient(to bottom, rgb(255, 255, 255), rgb(17, 0, 128));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.upper{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+span#member{
+    background-color: rgb(1, 1, 202);
+    padding: 3px 6px;
+    border-radius: 13px;
+    color: white;
+    font-size: 10px;
+    text-align: center;
+}
+span#show{
+    padding: 3px 6px;
+    color: black;
+    font-size: 10px;
+    text-align: center;
+    border: 1px solid black;
+    margin-left: 5px;
+}
+p.icons{
+    background-color: black;
+    padding: 0px 4px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+p.icons > span i{
+    color: white;
+}
+.upper-middle{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    line-height: 0px;
+}
+h3{
+   font-weight: 500;
+}
+.bottom span, .middle span{
+    margin-right: 8px;
+}

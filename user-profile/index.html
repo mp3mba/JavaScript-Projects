@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>User Profile</title>
+</head>
+<body>
+    <div id="app">
+        <upper-section />
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    title:'user profile'
+                }
+            },
+        })
+
+        app.component("upper-section", {
+            template: `
+                <div class="upper">
+                    <div class="img">  
+                        <img src="https://images.unsplash.com/photo-1531727991582-cfd25ce79613?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fHVzZXIlMjBwcm9maWxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60">
+                    </div>    
+
+                        <div class="upper-middle">
+                            <h3>Ong'wise47</h3>
+                            <p class="desc">
+                            <span id="member">Pro Member</span><span id="show">Show Wallet <i class="fa-regular fa-eye"></i></span>  
+                            </p>  
+                        </div>
+
+                        <p class="icons"><span class="up" @click="toDark"><i class="fa-regular fa-moon"></i></span><span class="btm" @click="toLight"><i class="fa-regular fa-sun"></i></span></p>
+                    </div>
+                    <hr>
+
+                    <div class="middle">
+                        <p><span><i class="fa-solid fa-chart-line"></i></span>Seller Dashboard</p>
+                        <p><span><i class="fa-regular fa-image"></i></span>NFT Collection</p>
+                    </div>
+                    <hr>
+
+                    <div class="bottom">
+                        <p><span><i class="fa-regular fa-user"></i></span>Profile Settings</p>
+                        <p><span><i class="fa-solid fa-arrow-right-from-bracket"></i></span>Log Out</p>
+                    </div>    
+            `,
+            methods: {
+                toDark(){
+                    document.getElementById('app').style.backgroundColor = "black";
+                    document.querySelector('.icons').style.backgroundColor = "white";
+                    document.querySelector('.fa-moon').style.color = "black";
+                    document.querySelector('.fa-sun').style.color = "black";
+                    document.getElementById('app').style.color = "white";
+                    console.log("dark")
+
+                },
+                toLight(){
+                    document.getElementById('app').style.backgroundColor = "";
+                    document.querySelector('.icons').style.backgroundColor = "";
+                    document.getElementById('app').style.color = "";
+                    document.querySelector('.fa-moon').style.color = "";
+                    document.querySelector('.fa-sun').style.color = "";
+                    console.log("light")
+                },
+            },
+        })
+
+        app.mount('#app')
+    </script>
+</body>
+</html>

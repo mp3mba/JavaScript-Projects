@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hide and Show password</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,100&display=swap" rel="stylesheet">
+
+    <!--CSS style -->
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            background-color: mintcream;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+        div#app{
+            width: 700px;
+            height: 250px;
+            background-color: rgb(243, 164, 177);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 2px 2px 4px rgba(255, 2, 2, 0.5);
+        }
+
+        input{
+            padding: 10px;
+            border-radius: 4px;
+            width: 250px;
+            border: none;
+            outline: none;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        button{
+            padding: 10px 20px;
+            border: none;
+            background-color: darkslategrey;
+            cursor: pointer;
+        }
+        i{
+            color: wheat;
+        }
+        .field{
+            display: inline;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Show and Hide password</h1>
+        <input-password />
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+       let app = Vue.createApp({
+         data(){
+            return{
+                name: ''
+            }
+         },
+       })
+
+       app.component('input-password', {
+        template: `<div class="field">
+                        <input :type="show ? 'text' : 'password'" class="pwd">
+                        <button @click="showToggle" v-if="show1"><i class="fa-regular fa-eye"></i></button>
+                        <button @click="showToggle" v-if="show"><i class="fa-regular fa-eye-slash"></i></button>
+                    </div>`,
+        data(){
+            return{
+                show1: true,
+                show: false
+            }
+        },
+        methods: {
+            showToggle(){
+                this.show = !this.show
+                this.show1 = !this.show1
+            }
+        },
+       })
+
+       app.mount('#app')
+    </script>
+</body>
+</html>
